@@ -4,20 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contatos</title>
+<style>
+    body {
+    
+        padding: 0 500px;
+    }
+    table{
+        font-family: Arial, Helvetica, sans-serif;
+        border: solid;
+        width: 50rem;
+        margin-bottom: 2rem;
+    }
+
+    td, th {
+        border: 2px, solid;
+        text-align: center;
+        padding: 8px;
+    }
+
+
+    .btn-box {
+        width: 50rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    a {
+        text-decoration: none;
+        background-color: green;
+        color: aliceblue;
+        border-radius: 5px;
+        border: solid green;
+        font-size: 25px;
+        padding: 1rem;
+        font-weight: bold;
+    }
+
+</style>
 </head>
 <body>
     
-    <h1>Contatos - "${users}"</h1>
-    <p id="user-data">
-        
+    <h1>Contatos</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Telefone</th>
+            <th>Email</th>
+        </tr>
+        <tbody class="contactList">
+        </tbody>
+    </table>
 
-    </p>
+    <div class="btn-box">
+        <a href="addContact.html">Adicionar Contato</a>
+        <a href="del.contact">Deletar Contato</a>
+
+    </div>
+    
 
     <script>
-        fetch('http://localhost:3000/', {method: 'GET'})
-        
+        fetch('http://localhost:3000/get', {method: 'GET'})
         .then(response => response.json())
-        .then(json=>console.log(json));
+        .then(data => {
+                const contactList = document.querySelector('.contactList');
+
+                data.forEach(contact => {
+                    const newRow = document.createElement('tr');
+
+                    const idCell = document.createElement('td');
+                    idCell.textContent = contact.id;
+
+                    const nomeCell = document.createElement('td');
+                    nomeCell.textContent = contact.nome;
+
+                    const telefoneCell = document.createElement('td');
+                    telefoneCell.textContent = contact.telefone;
+
+                    const emailCell = document.createElement('td');
+                    emailCell.textContent = contact.email;
+
+                    newRow.appendChild(idCell);
+                    newRow.appendChild(nomeCell);
+                    newRow.appendChild(telefoneCell);
+                    newRow.appendChild(emailCell);
+
+                    contactList.appendChild(newRow);
+                });
+            })
     </script>
 </body>
 </html>
