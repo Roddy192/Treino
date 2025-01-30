@@ -30,8 +30,8 @@ app.get('/get', (req, res) => {
 
 app.post('/add', (req, res) => {
   console.log('Olá Mundo');
-  res.send("funcionando");
-
+  con.query('INSERT INTO contatos (nome, telefone, email) VALUES () ')
+  res.send(req.body);
     });
 
 app.listen(3000, ()=> console.log('Server running on port 3000'));
