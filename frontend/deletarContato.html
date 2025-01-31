@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deletar Contato</title>
+</head>
+<style>
+    body {
+    
+        padding: 0 500px;
+        text-align: center;
+        }
+
+        .boxContact{
+            width: 50rem;
+            height: 50rem;
+            text-align: center;
+
+        }
+
+        .boxInput {
+            padding: 2rem;
+            display: flex;
+            background-color: lightgrey;
+            justify-content: center;
+
+            label {
+                font-weight: bold;
+                font-size: 25px;
+                margin-right: 5px;
+            }
+
+            input {
+                border: solid 1px;
+                border-radius: 2px;
+                padding: 5px;
+                border-color: lightgrey;
+            }
+
+            a {
+                text-decoration: none;
+                background-color: aliceblue;
+            }
+
+            button {
+                font-weight: bold;
+                height: 30px;
+                width: 70px;
+            }
+            }
+
+
+</style>
+<body>
+
+    <h1>Deletar Contato</h1>
+
+    <div class="boxContact">
+        <div class="boxInput">
+            <label for="fNome">ID</label>
+            <input type="text" id="fNome" name="fNome" size="50">
+        </div>
+        
+        <div class="boxInput">
+            <label for="fEmail">Nome</label>
+            <input type="text" id="fEmail" name="fEmail" size="50">
+        </div>
+
+        <div class="boxInput" style="display: flex; justify-content: space-between;">
+            <button onclick="envContato()" class="btnEnviar">Enviar</button>
+            <button onclick="window.location.href='index.html'" class="btnVoltar">Voltar</button>
+        </div>
+    </div>
+    
+</body>
+</html>
