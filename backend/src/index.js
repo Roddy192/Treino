@@ -39,5 +39,15 @@ app.post('/add', (req, res) => {
   console.log(nome);
     });
 
+
+app.post('/delete', (req, res) => {
+  const id = req.body.id;
+  con.query('DELETE FROM contatos WHERE id=?', [id]);
+  console.log(req.body);
+  console.log(nome);
+    });
+
+  
+
 app.listen(3000, ()=> console.log('Server running on port 3000'));
 

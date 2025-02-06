@@ -58,20 +58,50 @@
 
     <div class="boxContact">
         <div class="boxInput">
-            <label for="fNome">ID</label>
-            <input type="text" id="fNome" name="fNome" size="50">
+            <label for="fId">ID</label>
+            <input type="text" id="fId" name="fId" size="50">
         </div>
         
         <div class="boxInput">
-            <label for="fEmail">Nome</label>
-            <input type="text" id="fEmail" name="fEmail" size="50">
+            <label for="fNome">Nome</label>
+            <input type="text" id="fNome" name="fNome" size="50">
         </div>
 
         <div class="boxInput" style="display: flex; justify-content: space-between;">
-            <button onclick="envContato()" class="btnEnviar">Enviar</button>
+            <button onclick="atualizarContato()" class="btnAtualizar">Atualizar</button>
             <button onclick="window.location.href='index.html'" class="btnVoltar">Voltar</button>
         </div>
     </div>
+
+
+<script>
+
+
+async function atualizarContato() {
+
+
+    const id = document.getElementById("fId").value;
+    const nome = document.getElementById("fNome").value;
+
+    const data = {
+        id: id
+    };
+
+    fetch('http://localhost:3000/delete', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            });
+}
+
     
+
+    
+
+
+
+</script>
 </body>
 </html>
