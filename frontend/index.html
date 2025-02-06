@@ -6,8 +6,12 @@
     <title>Contatos</title>
 <style>
     body {
-    
-        padding: 0 500px;
+        margin: 25%;
+        margin-top: 10%;
+    }
+    .boxBody {
+        margin: 25%;
+
     }
     table{
         font-family: Arial, Helvetica, sans-serif;
@@ -40,27 +44,35 @@
         font-weight: bold;
     }
 
+    .contactList {
+        font-size: 20px;
+    }
+
 </style>
 </head>
 <body>
-    
-    <h1>Contatos</h1>
-    <table>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>Email</th>
-        </tr>
-        <tbody class="contactList">
-        </tbody>
-    </table>
+    <div class="boxBody">
+        <h1>Contatos</h1>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                </tr>
+                <tbody class="contactList">
+                </tbody>
+            </table>
 
-    <div class="btn-box">
-        <a href="addContact.html">Adicionar Contato</a>
-        <a href="deletarContato.html">Deletar Contato</a>
+            <div class="btn-box">
+                <a href="addContact.html">Adicionar Contato</a>
+                <a href="deletarContato.html">Deletar Contato</a>
+                <a href="editarContato.html">Editar Contato</a>
 
+            </div>
     </div>
+    
+    
     
 
     <script>

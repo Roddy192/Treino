@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deletar Contato</title>
+</head>
+<style>
+
+        .boxContact{
+            width: 50rem;
+            height: 25rem;
+            text-align: center;
+
+        }
+
+        .boxInput {
+            padding: 2rem;
+            display: flex;
+            background-color: lightgrey;
+            justify-content: center;
+
+            label {
+                font-weight: bold;
+                font-size: 25px;
+                margin-right: 5px;
+            }
+
+            input {
+                border: solid 1px;
+                border-radius: 2px;
+                padding: 5px;
+                border-color: lightgrey;
+            }
+
+            a {
+                text-decoration: none;
+                background-color: aliceblue;
+            }
+
+            button {
+                font-size: 18px;
+                font-weight: bold;
+                height: 30px;
+                width: 70px;
+            }
+            }
+
+    .boxBody{
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    .boxTable {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 30rem;
+        margin-top: 0px;
+        margin-left: 25%;
+        margin-right: 25%;
+        table {
+            border-style: solid;
+            width: 30rem;
+        }
+        td, th {
+        border: 2px, solid;
+        text-align: center;
+        padding: 8px;
+    }
+    }
+
+
+</style>
+<body>
+
+    <div class="boxBody">
+
+        <h1>Deletar Contato</h1>
+
+        <div class="boxContact">
+            <div class="boxInput">
+                <label for="fNome">ID</label>
+                <input type="text" id="fNome" name="fNome" size="50">
+            </div>
+            
+            <div class="boxInput">
+                <label for="fEmail">Nome</label>
+                <input type="text" id="fEmail" name="fEmail" size="50">
+            </div>
+    
+            <div class="boxInput" style="display: flex; justify-content: space-between;">
+                <button onclick="envContato()" class="btnEnviar">Enviar</button>
+                <button onclick="window.location.href='index.html'" class="btnVoltar">Voltar</button>
+            </div>
+        </div>
+
+        <div class="boxTable">
+            <h1>Contatos</h1>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                    </tr>
+                    <tbody class="contactList">
+                    </tbody>
+                </table>
+        </div>
+    
+            
+
+    </div>
+
+   
+    
+
+
+
+<script>
+    fetch('http://localhost:3000/get', {method: 'GET'})
+    .then(response => response.json())
+    .then(data => {
+            const contactList = document.querySelector('.contactList');
+
+            data.forEach(contact => {
+                const newRow = document.createElement('tr');
+
+                const idCell = document.createElement('td');
+                idCell.textContent = contact.id;
+
+                const nomeCell = document.createElement('td');
+                nomeCell.textContent = contact.nome;
+
+
+                newRow.appendChild(idCell);
+                newRow.appendChild(nomeCell);
+
+                contactList.appendChild(newRow);
+            });
+        })
+</script>
+    
+</body>
+</html>
